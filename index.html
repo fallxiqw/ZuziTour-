@@ -20,6 +20,7 @@
             background-color: #fff;
             overflow-x: hidden;
             width: 100%;
+            text-align: center; /* Глобальное центрирование текста */
         }
         
         a { text-decoration: none; color: inherit; }
@@ -28,25 +29,31 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+            width: 100%;
         }
 
         header { 
             background: rgba(255, 255, 255, 0.95); 
-            padding: 15px 5%; 
+            padding: 20px 5%; 
             display: flex; 
-            justify-content: space-between; 
+            flex-direction: column; 
+            justify-content: center; 
             align-items: center; 
+            gap: 15px; 
             box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
             position: sticky; 
             top: 0; 
             z-index: 100;
         }
 
-        .logo { font-size: 24px; font-weight: 800; letter-spacing: 1px; color: #000000; }
-        .logo span { color: #0056b3; }
+        .logo { width: 100%; display: flex; justify-content: center; }
+        .logo-link { display: flex; justify-content: center; align-items: center; }
+        .logo img { height: 45px; width: auto; transition: transform 0.3s ease; }
+        .logo img:hover { transform: scale(1.05); }
 
-        nav ul { list-style: none; display: flex; gap: 20px; }
-        nav ul li a { font-weight: 500; transition: color 0.3s; font-size: 0.9rem; }
+        nav { width: 100%; }
+        nav ul { list-style: none; display: flex; gap: 25px; justify-content: center; padding: 0; }
+        nav ul li a { font-weight: 500; transition: color 0.3s; font-size: 0.95rem; }
         nav ul li a:hover { color: #0056b3; }
 
         /* ГЛАВНЫЙ ФОН */
@@ -59,18 +66,36 @@
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
-            display: flex; flex-direction: column; justify-content: center; align-items: center; 
-            color: white; text-align: center; padding: 0 20px; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            color: white; 
+            text-align: center; 
+            padding: 0 20px; 
         }
         
+        .hero .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
         .hero h1 { 
             font-size: clamp(2.5rem, 10vw, 4.5rem); 
-            margin-bottom: 20px; 
+            margin: 0 auto 20px auto; 
             text-transform: uppercase; 
             text-shadow: 2px 4px 15px rgba(0,0,0,0.6);
             line-height: 1.1;
+            width: 100%;
         }
-        .hero p { font-size: 1.2rem; margin-bottom: 40px; max-width: 600px; }
+        .hero p { 
+            font-size: 1.2rem; 
+            margin: 0 auto 40px auto; /* Автоматические отступы по бокам центрируют блок */
+            max-width: 700px; 
+            width: 100%;
+        }
 
         section { padding: 100px 0; }
         section h2 { 
@@ -79,6 +104,7 @@
             text-align: center; 
             color: #2c3e50; 
             position: relative;
+            width: 100%;
         }
         section h2::after { 
             content: ''; display: block; width: 60px; height: 4px; background: #0056b3; margin: 15px auto 0; border-radius: 2px;
@@ -87,7 +113,6 @@
         .tours { background: #f9f9f9; }
         .tour-grid { 
             display: grid; 
-            /* Изменено для предотвращения вылезания карточек на мобильных: */
             grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); 
             gap: 40px; 
         }
@@ -103,7 +128,6 @@
         }
         .tour-card:hover { transform: translateY(-15px); box-shadow: 0 20px 40px rgba(0, 86, 179, 0.15); }
 
-        /* СЛАЙДЕР */
         .tour-slider {
             display: flex;
             overflow-x: auto;
@@ -111,9 +135,7 @@
             scrollbar-width: none; 
             -ms-overflow-style: none;  
         }
-        .tour-slider::-webkit-scrollbar {
-            display: none; 
-        }
+        .tour-slider::-webkit-scrollbar { display: none; }
 
         .tour-card-img {
             min-width: 100%; 
@@ -129,30 +151,26 @@
         .img-iskanderkul-1 { background-image: url('iskanderkul.jpg'); }
         .img-iskanderkul-2 { background-image: url('iskanderkul2.jpg'); }
         .img-iskanderkul-3 { background-image: url('iskanderkul3.jpg'); }
-        
         .img-alouddin-1 { background-image: url('alouddin.jpg'); }
         .img-alouddin-2 { background-image: url('alouddin2.jpg'); }
         .img-alouddin-3 { background-image: url('alouddin3.jpg'); }
-        
         .img-timurdara-1 { background-image: url('timurdara.jpg'); }
         .img-timurdara-2 { background-image: url('timurdara2.jpg'); }
         .img-timurdara-3 { background-image: url('timurdara3.jpg'); }
-        
         .img-khodja-1 { background-image: url('khodja.jpg'); }
         .img-khodja-2 { background-image: url('khodja2.jpg'); }
         .img-khodja-3 { background-image: url('khodja3.jpg'); }
 
-
-        .tour-info { padding: 30px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
-        .tour-info h3 { margin-bottom: 15px; color: #2c3e50; font-size: 1.4rem;}
+        .tour-info { padding: 30px; flex-grow: 1; display: flex; flex-direction: column; align-items: center; text-align: center; } 
+        .tour-info h3 { margin-bottom: 15px; color: #2c3e50; font-size: 1.4rem; }
         .tour-info p { color: #666; font-size: 0.95rem; margin-bottom: 25px; flex-grow: 1; }
-        .price-tag { text-align: right; }
-        .price { font-weight: bold; color: #0056b3; border: 2px solid #0056b3; padding: 6px 15px; border-radius: 20px; font-size: 0.85rem; text-transform: uppercase; }
+        .price-tag { width: 100%; display: flex; justify-content: center; } 
+        .price { font-weight: bold; color: #0056b3; border: 2px solid #0056b3; padding: 8px 20px; border-radius: 25px; font-size: 0.85rem; text-transform: uppercase; transition: 0.3s; }
+        .price:hover { background: #0056b3; color: #fff; }
 
         .benefits { background: #fff; }
         .benefit-grid { 
             display: grid; 
-            /* Изменено для предотвращения вылезания на мобильных: */
             grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); 
             gap: 40px; 
         }
@@ -162,6 +180,9 @@
             background: #fcfcfc;
             border-radius: 20px;
             border: 1px solid #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         .benefit-icon { font-size: 4rem; margin-bottom: 20px; display: block; }
         .benefit-item h3 { margin-bottom: 10px; color: #2c3e50; }
@@ -178,6 +199,7 @@
             transition: 0.3s; 
             display: inline-block; 
             box-shadow: 0 10px 20px rgba(0, 86, 179, 0.2);
+            margin: 0 auto;
         }
         .btn:hover { background: #004494; transform: scale(1.05) translateY(-3px); box-shadow: 0 15px 25px rgba(0, 86, 179, 0.3); }
         .btn-insta { background: linear-gradient(45deg, #f09433, #dc2743, #bc1888); }
@@ -185,20 +207,9 @@
         footer { background: #2c3e50; color: #fff; text-align: center; padding: 50px 20px; }
 
         @media (max-width: 768px) {
-            header { flex-direction: column; gap: 15px; text-align: center; padding: 20px; }
-            nav ul { gap: 15px; flex-wrap: wrap; justify-content: center;}
-            .hero { height: 90vh; background-attachment: scroll; }
+            .hero { height: auto; padding: 120px 20px; background-attachment: scroll; }
+            nav ul { gap: 15px; }
         }
-        
-        .logo img {
-            height: 40px;
-            width: auto;
-            display: block;
-            transition: transform 0.3s ease;
-        }
-        .logo img:hover { transform: scale(1.05); }
-        .logo-link { display: flex; align-items: center; }
-
     </style>
 </head>
 <body>
